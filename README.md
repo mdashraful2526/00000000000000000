@@ -169,4 +169,182 @@ heroku ps:scale worker=1
 
 ### Debug Mode:
 ```python
-# config
+# config.py তে DEBUG = True করুন
+DEBUG = True
+LOG_LEVEL = "DEBUG"
+```
+
+### Log Check:
+```bash
+# Terminal এ logs দেখুন
+python bot.py
+```
+
+## 📱 Bot Usage:
+
+### User Interaction:
+1. `/start` command দিন
+2. Market select করুন (OTC/Real)
+3. Trading pair choose করুন
+4. Chart এবং current price দেখুন
+5. "Get Signal" button এ click করুন
+6. UP/DOWN signal পাবেন timing সহ
+
+### Signal Format:
+```
+🎯 Trading Signal Generated
+
+📊 BTCUSDT
+💰 Entry Price: $43,250.75
+🎯 Signal: 🟢 UP
+⏰ Signal Time: 14:25:30
+⏳ Next Candle: 14:26:30
+
+*Signal valid for next 1-minute candle*
+```
+
+## 🔐 Security:
+
+### Environment Variables:
+- Never commit `.env` file
+- Use strong bot tokens
+- Rotate API keys regularly
+
+### .gitignore File:
+```
+.env
+__pycache__/
+*.pyc
+charts/
+logs/
+```
+
+## 🌐 Web Hosting:
+
+### Free Options:
+- **Railway**: Easy deployment
+- **Render**: Free tier available  
+- **Fly.io**: Free allowance
+- **PythonAnywhere**: Free account
+
+### Paid Options:
+- **Heroku**: $7/month
+- **DigitalOcean**: $5/month VPS
+- **AWS EC2**: Pay per use
+- **Google Cloud**: Free credits
+
+## 📈 Advanced Features:
+
+### Custom Indicators:
+```python
+# bot.py তে add করুন
+def calculate_rsi(prices, period=14):
+    # RSI calculation
+    pass
+
+def bollinger_bands(prices, period=20):
+    # Bollinger bands calculation  
+    pass
+```
+
+### Database Integration:
+```python
+# SQLite database for signal history
+import sqlite3
+
+def save_signal_to_db(signal_data):
+    # Save signals to database
+    pass
+```
+
+### Multiple Timeframes:
+```python
+# 5min, 15min, 1hour charts
+TIMEFRAMES = {
+    '1m': '1m',
+    '5m': '5m', 
+    '15m': '15m',
+    '1h': '1h'
+}
+```
+
+## 🎨 Customization:
+
+### Chart Styling:
+```python
+# config.py তে colors change করুন
+CHART_COLORS = {
+    'background': '#000000',  # Black background
+    'candle_up': '#00ff00',   # Green candles
+    'candle_down': '#ff0000', # Red candles
+    'text': '#ffffff'         # White text
+}
+```
+
+### Add More Pairs:
+```python
+# config.py তে নতুন pairs add করুন
+OTC_PAIRS.append("GBPJPY OTC")
+REAL_PAIRS.append("DOGEUSDT")
+```
+
+## 📞 Support:
+
+### Common Commands:
+- `/start` - Start bot
+- `/help` - Show help (optional)
+- `/status` - Bot status (optional)
+
+### Bot Maintenance:
+- Regular API key rotation
+- Monitor error logs
+- Update dependencies monthly
+- Backup signal data
+
+## 🚀 Deployment Steps Summary:
+
+1. **Create folder**: `mkdir telegram-otc-bot`
+2. **Copy files**: All 6 files নিয়ে folder এ রাখুন
+3. **Install Python**: Python 3.8+ install করুন
+4. **Create venv**: `python -m venv otc_bot_env`
+5. **Activate venv**: Platform অনুযায়ী activate করুন
+6. **Install deps**: `pip install -r requirements.txt`
+7. **Set token**: `.env` file এ bot token add করুন
+8. **Run bot**: `python bot.py`
+9. **Test**: Telegram এ bot test করুন
+10. **Deploy**: Cloud platform এ deploy করুন
+
+## 🎯 Production Ready:
+
+### Performance:
+- Async operations for speed
+- Memory efficient chart generation  
+- API rate limiting handled
+- Error handling implemented
+
+### Reliability:
+- Automatic restart on errors
+- Data validation
+- Timeout handling
+- Graceful shutdown
+
+---
+
+## 📋 File Checklist:
+
+✅ `bot.py` - Main bot code  
+✅ `config.py` - Configuration  
+✅ `requirements.txt` - Dependencies  
+✅ `.env` - Environment variables  
+✅ `setup.py` - Installation script  
+✅ `README.md` - Documentation  
+
+**Total Files**: 6 files
+**Estimated Setup Time**: 10-15 minutes
+**Skill Level**: Beginner friendly
+
+---
+
+🎉 **Your OTC Trading Bot is ready to use!**
+
+For questions or support, check the troubleshooting section or review the error logs.
