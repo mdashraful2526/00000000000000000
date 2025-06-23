@@ -1,42 +1,15 @@
-# market_data.py
-import requests
-import datetime
-from config import MARKET_API_KEY
-import random
+# কনফিগারেশন ফাইল - এখানে আপনার API কী গুলো বসাবেন
 
-# Sample market pairs
-OTC_MARKETS = [
-    "AED/CNY", "AUD/CAD", "BHD/CNY",
-    "EUR/USD", "GBP/USD", "AUD/NZD",
-    "IZD/USD", "EUR/JPY", "CAD/JPY",
-    "JD/USD", "AUD/CHF", "GBP/AUD"
-]
+# টেলিগ্রাম বট টোকেন (আপনার দেওয়া টোকেন দিয়ে রিপ্লেস করেছি)
+TELEGRAM_TOKEN = "7332093108:AAHnMI33B7ecpFGTOxrpbGUNGrUD-aJ1vS4"
 
-REAL_MARKETS = [
-    "BTC/USD", "ETH/USD", "XRP/USD",
-    "LTC/USD", "BNB/USD", "ADA/USD",
-    "DOT/USD", "LINK/USD", "BCH/USD"
-]
+# মার্কেট ডেটার জন্য Alpha Vantage API কী (ফ্রি)
+# পাবেন: https://www.alphavantage.co/support/#api-key
+ALPHA_VANTAGE_API = "YOUR_ALPHA_VANTAGE_KEY"  # এখানে আপনার কী বসাবেন
 
-def fetch_market_data(market_type: str, hour: int) -> list:
-    """Fetch market data based on type and time"""
-    if market_type == 'OTC':
-        pairs = OTC_MARKETS
-    else:
-        pairs = REAL_MARKETS
-    
-    # In a real implementation, you would call the API here
-    # For demonstration, we'll return random data
-    return simulate_api_call(pairs, hour)
+# Twelve Data API কী (বিকল্প)
+# পাবেন: https://twelvedata.com/apikey
+TWELVE_DATA_API = "YOUR_TWELVE_DATA_KEY"  # এখানে আপনার কী বসাবেন
 
-def simulate_api_call(pairs: list, hour: int) -> list:
-    """Simulate API call with time-based data"""
-    # This is where you would normally call your market data API
-    # For now, we'll just return the pairs with simulated changes
-    
-    # Seed random with hour for consistent(ish) results
-    random.seed(hour)
-    
-    # Return about 60% of the pairs randomly
-    sample_size = max(4, int(len(pairs) * 0.6))
-    return random.sample(pairs, sample_size)
+# টাইমজোন সেটিং
+TIMEZONE = 'Asia/Dhaka'  # বাংলাদেশের সময়
